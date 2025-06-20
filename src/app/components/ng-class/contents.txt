@@ -1,0 +1,4 @@
+1. Menerapkan classname dari class yang telah dibuat di .ts
+2. Membuat fungsi untuk menambahkan class ketika tombol ditekan
+3. Styling berdasarkan kondisi true dan false menggunakan checkbox
+4. Memberi styling class berdasarkanvalue dari input text

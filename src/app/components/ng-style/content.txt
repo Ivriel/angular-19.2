@@ -1,0 +1,2 @@
+1. Ketika pencet tombol merah, maka akan berubah warna merah. Dan ketika pencet tombol ijo maka akan berubah warna ijo. Intinya
+classnya akan berubah ketika tombol tertentu ditekan

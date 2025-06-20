@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { DataBindingComponent } from './components/data-binding/data-binding.component';
+import { HeaderComponent } from './components/header/header.component';
+
+
 @Component({
   selector: 'app-root',
-  imports: [DataBindingComponent],
+  imports: [HeaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

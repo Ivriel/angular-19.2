@@ -1,0 +1,20 @@
+<!-- Navbar -->
+<nav class="position-fixed top-0 start-0 end-0 bg-light shadow-sm p-3 d-flex justify-content-between align-items-center z-3">
+    <div>
+      <a routerLink="home" class="text-decoration-none fw-bold">Angular 19</a>
+    </div>
+    <div>
+      <ul class="list-unstyled d-flex gap-3 mb-0">
+        <li><a routerLink="dataBinding" class="text-decoration-none">Data Binding</a></li>
+        <li><a routerLink="ng-class" class="text-decoration-none">Ng Class</a></li>
+        <li><a routerLink="control-flow" class="text-decoration-none">Control Flow</a></li>
+        <li><a routerLink="http" class="text-decoration-none">HTTP</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <!-- Konten -->
+  <div class="container mt-5 pt-5">
+    <router-outlet></router-outlet>
+  </div>
+  

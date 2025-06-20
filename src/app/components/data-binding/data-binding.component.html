@@ -31,3 +31,19 @@
         </select>
     </div>
 </div>
+
+<div class="row">
+    <div class="col-3">
+        <!-- Mengirim nilai input secara live ke variabel first name -->
+        <input type="text" [(ngModel)]="firstName">
+    </div>
+    <div class="col-3">
+        <select [(ngModel)]="selectedName">
+            <option value="Ivriel">Ivriel</option>
+            <option value="Gunawan">Gunawan</option>
+            <option value="Fijay">Fijay</option>
+            <option value="Anji">Anji</option>
+        </select>
+        {{selectedName}}
+    </div>
+</div>

@@ -1,0 +1,62 @@
+<div class="row">
+    <div class="col-3">
+        @if (div1Visible) {
+            <div class="bg-success p-3">
+                Div 1
+            </div>
+        }
+    </div>
+    <div class="col-3">
+        @if (isChecked) {
+            <div class="bg-primary p-3">
+                checkbox is checked
+            </div>
+        } @else {
+            <div class="bg-danger p-3">
+                Checkbox is unchecked
+            </div>
+        }
+    </div>
+    <div class="col-3">
+        @switch (dayName.toLocaleLowerCase()) {
+            @case ('mon') {
+                <span>Monday</span>
+            }
+            @case ('tue') {
+                <span>Tuesday</span>
+            }
+            @case ('wed') {
+                <span>Wednesday</span>
+            }
+            @case ('thu') {
+                <span>Thursday</span>
+            }
+            @case ('fri') {
+                <span>Friday</span>
+            }
+            @default {
+               <span>Enter proper day name </span>
+            }
+        }
+        <span></span>
+    </div>
+</div>
+
+<div class="row pt-4">
+    <div class="col-3">
+       <button class="btn btn-success" (click)="hideShowDiv1(true)">Show</button>
+       <button class="btn btn-danger" (click)="hideShowDiv1(false)">Hide</button>
+    </div>
+    <div class="col-3">
+       <input type="checkbox" [(ngModel)]="isChecked"/>
+    </div>
+    <div class="col-3">
+        <input type="text" #dayNameRef="ngModel" required [(ngModel)]="dayName" maxlength="3" placeholder="Enter Day Starting "/>
+        <div *ngIf="dayNameRef.invalid && dayNameRef.touched" class="text-danger mt-1">
+            <div *ngIf="dayNameRef.errors?.['required']">Input tidak boleh kosong.</div>
+          </div>
+          <div *ngIf="dayNameRef.value?.length === 3 && dayNameRef.touched" class="text-warning mt-1">
+            Maksimal 3 karakter saja.
+        </div>
+     </div>
+</div>
