@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-data-binding',
@@ -16,7 +17,7 @@ export class DataBindingComponent {
   div1ClassName:string = "bg-primary"
   selectedName:string = ""
 
-  constructor(){ // ditampilkan ketika halaman dimuat pertama kali
+  constructor(private router:Router){ // ditampilkan ketika halaman dimuat pertama kali
     console.log(this.firstName)
     console.log(this.isActive = false)
     this.showWelcomeMessage()
@@ -29,5 +30,9 @@ export class DataBindingComponent {
   onCityChange(event:Event){
     const selectElement = event.target as HTMLSelectElement
     console.log("City changed",selectElement.value)
+  }
+
+  navigateToHome(){
+    this.router.navigateByUrl("/")
   }
 } 

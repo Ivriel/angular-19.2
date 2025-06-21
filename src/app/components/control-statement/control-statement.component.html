@@ -60,3 +60,43 @@
         </div>
      </div>
 </div>
+
+<div class="row">
+    <div class="col-3">
+        <select name="" id="">
+            @for (city of cityList; track $index) {
+                <option>{{city}}</option>
+            }
+        </select>
+    </div>
+    <div class="col-3">
+        @for (item of cityList; track $index) {
+            <button class="btn btn-success">{{item}}</button>
+        }
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-5">
+        <table class="table table-bordered">
+            <thead class="text-center">
+                <tr>
+                    <th>Sr No</th>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>Mobile No</th>
+                </tr>
+            </thead>
+           <tbody class="text-center">
+            @for (item of employeeArray; track $index) {
+                <tr>
+                    <td>{{$index + 1}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.city}}</td>
+                    <td>{{item.contactNo}}</td>
+                </tr>
+            }
+           </tbody>
+        </table>
+    </div>
+</div>

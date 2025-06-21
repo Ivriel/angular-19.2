@@ -4,8 +4,7 @@ import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink,RouterOutlet
-  ],
+  imports: [RouterLink,RouterOutlet],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })

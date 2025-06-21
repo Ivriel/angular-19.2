@@ -1,0 +1,2 @@
+Dependent signal adalah satu signal value
+Jika satu signal value berubah dan signal value lainnya ikut berubah juga, maka itu disebut dengan linked signal

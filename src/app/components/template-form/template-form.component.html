@@ -1,0 +1,83 @@
+<div class="container">
+    <h2>User Form</h2>
+<form class="row g-3 needs-validation" novalidate #userForm="ngForm">
+    <div class="col-md-4">
+      <label>First name <span class="text-danger">*</span></label>
+      <input type="text" class="form-control" required #name="ngModel" name="firstName" [(ngModel)]="userObj.firstName">
+      <div class="text-danger">
+        <!-- kalau user sudah menekan inputnya baru muncul  -->
+        <span class="text-danger" *ngIf="name.errors?.['required'] && (name.touched || formSubmitted) ">
+          This field is required
+        </span>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <label>Last name</label>
+      <input type="text" class="form-control" required minlength="10" #lastName="ngModel" name="lastName" [(ngModel)]="userObj.lastName">
+      <div class="text-danger">
+        <span *ngIf="lastName.errors?.['required'] && (lastName.touched || formSubmitted)">This is Required</span>
+        <span *ngIf="lastName.errors?.['minlength'] && (lastName.touched || formSubmitted )">Min Characters is 10</span>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <label>Username</label>
+      <div class="input-group has-validation">
+        <span class="input-group-text"  id="inputGroupPrepend">&#64;</span>
+        <input type="email" name="userName" email required #email="ngModel" class="form-control"  [(ngModel)]="userObj.userName">
+       <div class="text-danger">
+         <span *ngIf="email.errors?.['required'] && (email.touched || formSubmitted)">This is required</span>
+         <span *ngIf="email.errors?.['email']">Please enter valid email address</span>
+       </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <label>City</label>
+      <input type="text" class="form-control" required #city="ngModel" maxlength="10" name="city" [(ngModel)]="userObj.city">
+      <div class="text-danger">
+        <span *ngIf="city.errors?.['required'] && (city.touched || formSubmitted)">This is required field</span>
+        <span *ngIf="city.value?.length > 10">Maximum Characters are 10</span>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <label>State</label>
+      <select class="form-select" required #state="ngModel" name="state" [(ngModel)]="userObj.state">
+        <option selected disabled value="">Choose state</option>
+        <option value="Malang">Malang</option>
+        <option value="Surabaya">Surabaya</option>
+        <option value="Jakarta">Jakarta</option>
+      </select>
+      <span class="text-danger" *ngIf="state.errors?.['required'] && (state.touched || formSubmitted)">
+        Please select a state
+      </span>
+    </div>
+    <div class="col-md-3">
+      <label>Zip</label>
+      <input type="number" name="zipCode" required  min="10000" max="99999" #zipCode="ngModel" class="form-control" [(ngModel)]="userObj.zipCode">
+      <div class="text-danger">
+        <span *ngIf="zipCode.errors?.['required'] && (zipCode.touched || formSubmitted)">
+          This field is required
+        </span>
+        <span *ngIf="zipCode.errors?.['min'] && zipCode.touched">
+          Zip Code must be a 5-digit number.
+        </span>
+        <span *ngIf="zipCode.errors?.['max'] && zipCode.touched">
+          Zip Code must be exactly 5 digits.
+        </span>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="form-check">
+        <input class="form-check-input" required #isAgree="ngModel" name="isTermsAgree" [(ngModel)]="userObj.isTermsAgree" type="checkbox">
+        <label class="form-check-label" for="invalidCheck">
+          Agree to terms and conditions
+        </label>
+       <div class="text-danger">
+        <span *ngIf="(formSubmitted || isAgree.touched) &&  isAgree.errors?.['required']">Field ini harus dicentang</span>
+       </div>
+      </div>
+    </div>
+    <div class="col-12">
+      <button [disabled]=" formSubmitted && userForm.invalid" (click)="onSubmit(userForm)" class="btn btn-primary" type="button" (click)="onSave()">Submit form</button>
+    </div>
+  </form>
+</div>
