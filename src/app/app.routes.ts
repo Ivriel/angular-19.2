@@ -10,8 +10,10 @@ import { ReactiveFormComponent } from './components/reactive-form/reactive-form.
 import { NgIfComponent } from './components/ng-if/ng-if.component';
 import { NgForComponent } from './components/ng-for/ng-for.component';
 import { NgStyleComponent } from './components/ng-style/ng-style.component';
-import { GetApiComponent } from './components/get-api/get-api.component';
-import { PostApiComponent } from './components/post-api/post-api.component';
+import { GetApiComponent } from './components/API/get-api/get-api.component';
+import { PostApiComponent } from './components/API/post-api/post-api.component';
+import { ResourceApiComponent } from './components/resource-api/resource-api.component';
+import { CustomerComponent } from './components/API/customer/customer.component';
 
 export const routes: Routes = [
     {
@@ -70,5 +72,13 @@ export const routes: Routes = [
     {
         path:'post-api',
         component:PostApiComponent
+    },
+    {
+        path:'resource-api',
+        component:ResourceApiComponent
+    },
+    {
+        path:'customer',
+        component:CustomerComponent
     }
 ];
