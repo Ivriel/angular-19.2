@@ -6,14 +6,27 @@
     <div>
       <ul class="list-unstyled d-flex gap-3 mb-0 align-items-center">
         <li><a routerLink="dataBinding" class="text-decoration-none">Data Binding</a></li>
-        <li><a routerLink="ng-class" class="text-decoration-none">Ng Class</a></li>
+        <li>
+          <!-- Dropdown Directives -->
+          <div class="dropdown">
+            <button class="border-0 bg-transparent dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Directives
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="ng-if">Ng-If</a></li>
+              <li><a class="dropdown-item" routerLink="ng-class">Ng-Class</a></li>
+              <li><a class="dropdown-item" routerLink="ng-for">Ng-For</a></li>
+              <li><a class="dropdown-item" routerLink="ng-style">Ng-Style</a></li>
+            </ul>
+          </div>
+        </li>
         <li><a routerLink="control-flow" class="text-decoration-none">Control Flow</a></li>
         <li class="d-flex align-items-center">
             
     <!-- Dropdown Signal -->
     <div class="dropdown">
         <button class="border-0 bg-transparent dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Signal
+          Signals
         </button>
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" routerLink="signal">signal</a></li>
@@ -30,7 +43,7 @@
                 </button>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" routerLink="templateform">template-form</a></li>
-                  <li><a class="dropdown-item" routerLink="linkedsignal">linked-signal</a></li>
+                  <li><a class="dropdown-item" routerLink="reactiveform">reactive-form</a></li>
                 </ul>
               </div>
          </li>
