@@ -16,79 +16,93 @@ import { ResourceApiComponent } from './components/resource-api/resource-api.com
 import { CustomerComponent } from './components/API/customer/customer.component';
 import { LifeCycleComponent } from './components/API/life-cycle/life-cycle.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { LoginComponent } from './components/login/login.component';
+import { LayoutComponent } from './components/layout/layout.component';
+import { authGuard } from './guard/auth.guard';
 
 export const routes: Routes = [
     {
         path:'',
         pathMatch:'full',
-        redirectTo:'home'
+        redirectTo:'login'
     },
     {
-        path:'home',
-        component:HomeComponent
+        path:'login',
+        component:LoginComponent
     },
     {
-        path:'dataBinding',
-        component:DataBindingComponent
-    },
-    {
-        path:'ng-class',
-        component:NgClassComponent
-    },
-    {
-        path:'ng-if',
-        component:NgIfComponent
-    },
-    {
-        path:'ng-for',
-        component:NgForComponent
-    },
-    {
-        path:'ng-style',
-        component:NgStyleComponent
-    },
-    {
-        path:'control-flow',
-        component:ControlStatementComponent
-    },
-    {
-        path:'signal',
-        component:SignalComponent
-    },
-    {
-        path:'linkedsignal',
-        component:LinkedSignalComponent
-    },
-    {
-        path:'templateform',
-        component:TemplateFormComponent
-    },
-    {
-        path:'reactiveform',
-        component:ReactiveFormComponent
-    },
-    {
-        path:'get-api',
-        component:GetApiComponent
-    },
-    {
-        path:'post-api',
-        component:PostApiComponent
-    },
-    {
-        path:'resource-api',
-        component:ResourceApiComponent
-    },
-    {
-        path:'customer',
-        component:CustomerComponent
-    },
-    {
-        path:'lifeCycle',
-        component:LifeCycleComponent
-    },
-    {
-        path:'admin',
-        component:AdminComponent
+        path:'',
+        component:LayoutComponent,
+        canActivate:[authGuard],
+        children:[ // komponen yang akan diakses setelah login
+            {
+                path:'home',
+                component:HomeComponent
+            },
+            {
+                path:'dataBinding',
+                component:DataBindingComponent
+            },
+            {
+                path:'ng-class',
+                component:NgClassComponent
+            },
+            {
+                path:'ng-if',
+                component:NgIfComponent
+            },
+            {
+                path:'ng-for',
+                component:NgForComponent
+            },
+            {
+                path:'ng-style',
+                component:NgStyleComponent
+            },
+            {
+                path:'control-flow',
+                component:ControlStatementComponent
+            },
+            {
+                path:'signal',
+                component:SignalComponent
+            },
+            {
+                path:'linkedsignal',
+                component:LinkedSignalComponent
+            },
+            {
+                path:'templateform',
+                component:TemplateFormComponent
+            },
+            {
+                path:'reactiveform',
+                component:ReactiveFormComponent
+            },
+            {
+                path:'get-api',
+                component:GetApiComponent
+            },
+            {
+                path:'post-api',
+                component:PostApiComponent
+            },
+            {
+                path:'resource-api',
+                component:ResourceApiComponent
+            },
+            {
+                path:'customer',
+                component:CustomerComponent
+            },
+            {
+                path:'lifeCycle',
+                component:LifeCycleComponent
+            },
+            {
+                path:'admin',
+                component:AdminComponent
+            }
+        ]
     }
 ];
