@@ -3,6 +3,8 @@ import { AfterViewInit, Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { TabsComponent } from '../../reusable/tabs/tabs.component';
+import { Car,ICarList } from '../../../models/car';
+
 @Component({
   selector: 'app-post-api',
   imports: [FormsModule,CommonModule,TabsComponent],
@@ -28,17 +30,8 @@ export class PostApiComponent implements OnInit,AfterViewInit {
     this.currentTab = tabName
   }
 
-  carList:any[] = []
-  carObj:any = {
-    "carId": 0,
-  "brand": "",
-  "model": "",
-  "year": 0,
-  "color": "",
-  "dailyRate": 0,
-  "carImage": "",
-  "regNo": ""
-  }
+  carList:ICarList[] = []
+  carObj:Car = new Car(); // inisialisasi method 
   http = inject(HttpClient) //cara lain membuat object httpClient
 
   getAllCars(){
@@ -89,6 +82,7 @@ export class PostApiComponent implements OnInit,AfterViewInit {
         alert("Successfully created car")
         this.getAllCars()
         this.resetCarObj()
+        this.carObj = new Car() // reinisialisasi object
       } else {
         alert(res.message) // properti dari API nya
       }
