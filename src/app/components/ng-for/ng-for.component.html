@@ -1,4 +1,32 @@
 <div class="row">
+    <div class="col-3">
+        courseName => {{courseName}} <br>
+        uppercase = {{courseName | uppercase}}
+        lowercase = {{courseName | lowercase}}
+    </div>
+    <div class="col-3">
+        studentObj => {{studentObj}} <br>
+        {{studentObj | json}}
+    </div>
+    <div class="col-3">
+        {{employeeArray | json}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        currentDate = {{currentDate}}
+        <br>
+        date only = {{currentDate | date}}
+    </div>
+    <div class="col-3">
+        <!-- MM buat nampilin nomor bulan, MMM buat nampilin nama bulan -->
+        current date = {{currentDate | date:'dd/MM/yyyy'}}
+        <br>
+        {{currentDate | date:'hh:mm:ss'}}
+    </div>
+</div>
+
+<div class="row">
     <div class="col-2">
         <ul>
             <li *ngFor="let city of cityList">
@@ -32,15 +60,20 @@
                     <th class="text-center">Sr No</th>
                     <th class="text-center">Name</th>
                     <th class="text-center">City</th>
-                    <th class="text-center">Mobile No</th>
+                    <th class="text-center">Mobile Nooo</th>
+                    <th class="text-center">Attendance</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let employee of employeeArray; let srno = index">
                     <td class="text-center">{{srno + 1}}</td>
                     <td class="text-center">{{employee.name}}</td>
-                    <td class="text-center">{{employee.city}}</td>
+                    <td class="text-center">{{employee.city | uppercase | notavailable}}</td>
                     <td class="text-center">{{employee.contactNo}}</td>
+                    <td class="text-center">
+                        <!-- Pass value ke property input -->
+                        <app-progress-bar [progressValue]="employee.attendance"></app-progress-bar>
+                    </td>
                 </tr>
             </tbody>
         </table>

@@ -15,7 +15,7 @@ export class GetApiComponent {
   getUsers(){
     this.http.get("https://jsonplaceholder.typicode.com/users").subscribe((data:any)=> {
       this.userList = data
-    })
+    }) 
   }
 
   getProducts(){

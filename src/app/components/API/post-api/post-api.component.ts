@@ -1,17 +1,31 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, inject } from '@angular/core';
+import { AfterViewInit, Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { TabsComponent } from '../../reusable/tabs/tabs.component';
 @Component({
   selector: 'app-post-api',
-  imports: [FormsModule,CommonModule],
+  imports: [FormsModule,CommonModule,TabsComponent],
   templateUrl: './post-api.component.html',
   styleUrl: './post-api.component.css'
 })
-export class PostApiComponent {
-  showCars:boolean = true
+export class PostApiComponent implements OnInit,AfterViewInit {
+  showCars:boolean = true 
+  currentTab:string ="Car List"
   constructor(){
     // this.getAllCars() agar ketika component baru ditampilkan, langsung jalan untuk get all carsnya 
+  }
+
+  ngOnInit(): void {
+    this.getAllCars()
+  }
+  ngAfterViewInit(): void {
+    console.log("after view init",performance.now())
+  }
+
+  onTabChange(tabName:string){
+    debugger;
+    this.currentTab = tabName
   }
 
   carList:any[] = []
@@ -102,6 +116,7 @@ export class PostApiComponent {
   }
 
   updateCar(){
+    debugger
     this.http.put("/api/CarRentalApp/UpdateCar",this.carObj).subscribe((res:any)=> {
       if(res.result) {
         alert("Car updated successfully")

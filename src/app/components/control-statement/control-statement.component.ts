@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Employee } from '../ng-for/ng-for.component';
+
 @Component({
   selector: 'app-control-statement',
   imports: [FormsModule,CommonModule],
@@ -21,7 +21,7 @@ export class ControlStatementComponent {
     "Hyperabad"
   ]
 
-  employeeArray:Employee[] = [
+  employeeArray:any[] = [
     {
       empId:121,
       name:'AAA',

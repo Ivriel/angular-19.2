@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CustomerService {
-  apiUrl:string = "/api/CarRentalApp/"
+  private apiUrl:string = "/api/CarRentalApp/"
   constructor(private http:HttpClient) { }
 
   getCustomer(){

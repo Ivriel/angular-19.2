@@ -1,15 +1,17 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CustomerService } from '../../../services/customer.service';
+import { ProgressBarComponent } from "../../reusable/progress-bar/progress-bar.component";
+import { TabsComponent } from "../../reusable/tabs/tabs.component";
 
 @Component({
   selector: 'app-customer',
-  imports: [FormsModule],
+  imports: [FormsModule, ProgressBarComponent, TabsComponent],
   templateUrl: './customer.component.html',
   styleUrl: './customer.component.css'
 })
 export class CustomerComponent {
+  customerTabs:string[] = ["Basic Info","Plan Info","Payments"]
   customerArray:any[] = []
   customerObj:any = {
     
@@ -43,7 +45,7 @@ export class CustomerComponent {
     const payload = {
       customerName: this.customerObj.customerName,
       customerCity: this.customerObj.customerCity,
-      mobileNo: Number(this.customerObj.mobileNo), // pastikan number
+      mobileNo: this.customerObj.mobileNo, // pastikan number
       email: this.customerObj.email
     };
     console.log(payload); // cek di console
@@ -55,5 +57,15 @@ export class CustomerComponent {
         alert(res.message)
       }
     })
+    this.resetCustomer()
+  }
+
+  resetCustomer(){ // kosongin form nya
+    this.customerObj = {
+      customerName:"",
+      customerCity:"",
+      mobileNo:"",
+      email:""
+    }
   }
 }
