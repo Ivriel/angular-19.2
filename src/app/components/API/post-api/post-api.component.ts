@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
-import { AfterViewInit, Component, inject, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, inject, OnInit,ViewChild,viewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { TabsComponent } from '../../reusable/tabs/tabs.component';
 import { Car,ICarList } from '../../../models/car';
+
 
 @Component({
   selector: 'app-post-api',
@@ -13,6 +14,9 @@ import { Car,ICarList } from '../../../models/car';
 })
 export class PostApiComponent implements OnInit,AfterViewInit {
   showCars:boolean = true 
+  @ViewChild('txtCity') cityTextbox : ElementRef | undefined
+  @ViewChild(TabsComponent) myTabViewChild: TabsComponent | undefined
+
   currentTab:string ="Car List"
   constructor(){
     // this.getAllCars() agar ketika component baru ditampilkan, langsung jalan untuk get all carsnya 
@@ -28,6 +32,15 @@ export class PostApiComponent implements OnInit,AfterViewInit {
   onTabChange(tabName:string){
     debugger;
     this.currentTab = tabName
+  }
+
+  readCity(){
+    debugger
+    const city = this.cityTextbox?.nativeElement.value
+    if(this.cityTextbox) {
+      this.cityTextbox.nativeElement.style.color="red"
+    }
+    const value = this.myTabViewChild?.currentTab
   }
 
   carList:ICarList[] = []

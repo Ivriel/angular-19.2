@@ -33,7 +33,7 @@ export const routes: Routes = [
     {
         path:'',
         component:LayoutComponent,
-        canActivate:[authGuard],
+        // canActivate:[authGuard],
         children:[ // komponen yang akan diakses setelah login
             {
                 path:'home',

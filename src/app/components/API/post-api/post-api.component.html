@@ -9,7 +9,8 @@
         <app-tabs [tabList]="['Car List','New Car Form']" (onTabClicked)="onTabChange($event)"></app-tabs>
     </div>
 </div>
---{{currentTab}}
+<input type="text" #txtCity placeholder="Enter city"/>
+<button (click)="readCity()">Red Value</button>
 
 <div class="row pt-2">
     @if (currentTab == "Car List") {
