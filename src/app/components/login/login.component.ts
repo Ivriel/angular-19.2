@@ -29,6 +29,7 @@ export class LoginComponent {
       debugger;
       localStorage.setItem("angular19User",res.data.userId)
       localStorage.setItem("angular19Token",res.data.token) // masukkan token ke local storage kalau berhasil login
+      localStorage.setItem("angular19TokenData",JSON.stringify(res.data)) // convert semua data di satu objek ke string
         this.router.navigateByUrl("admin")
     },
     error=> {
