@@ -1,0 +1,58 @@
+<div class="row">
+    <div class="col-5">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th class="text-center">Sr No</th>
+                    <th class="text-center">Name</th>
+                    <th class="text-center">City</th>
+                    <th class="text-center">Mobile Nooo</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngIf="isLoader">
+                   <!-- <ng-container  *ngTemplateOutlet="loaderTemplate">
+
+                   </ng-container> -->
+                   <div [ngTemplateOutlet]="loaderTemplate">
+
+                   </div>
+                </ng-container>
+                <ng-container *ngIf="!isLoader">
+                    <tr *ngFor="let employee of employeeArray; let srno = index">
+                        <td class="text-center">{{srno + 1}}</td>
+                        <td class="text-center">{{employee.name}}</td>
+                        <td class="text-center">{{employee.city | uppercase | notavailable}}</td>
+                        <td class="text-center">{{employee.contactNo}}</td>
+                        <td>
+                            <h4 *ngIf="employee.isActive else temDeActive">Active</h4>
+                        </td>
+                    </tr>
+                </ng-container>
+               
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<ng-template #loaderTemplate>
+    <tr>
+        <td colspan="4" class="text-align">
+         <div class="spinner-border text-primary" role="status">
+           </div>
+           <div class="spinner-border text-secondary" role="status">
+           </div>
+           <div class="spinner-border text-success" role="status">
+           </div>
+           <div class="spinner-border text-danger" role="status">
+           </div>
+        </td>
+     </tr>
+</ng-template>
+
+<ng-template #temDeActive>
+    <div class="text-danger">
+        <span>De-Active</span>
+    </div>
+</ng-template>

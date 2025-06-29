@@ -19,6 +19,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { LoginComponent } from './components/login/login.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { authGuard } from './guard/auth.guard';
+import { NgTempNgContainerComponent } from './components/ng-temp-ng-container/ng-temp-ng-container.component';
 
 export const routes: Routes = [
     {
@@ -102,6 +103,10 @@ export const routes: Routes = [
             {
                 path:'admin',
                 component:AdminComponent
+            },
+            {
+                path:'ngcontainer',
+                component:NgTempNgContainerComponent
             }
         ]
     }

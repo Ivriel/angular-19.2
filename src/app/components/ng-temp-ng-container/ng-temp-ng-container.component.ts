@@ -1,34 +1,23 @@
 import { Component } from '@angular/core';
+import { Employee } from '../ng-for/ng-for.component';
 import { CommonModule } from '@angular/common';
 import { NotavailablePipe } from '../../pipes/notavailable.pipe';
-import { ProgressBarComponent } from "../reusable/progress-bar/progress-bar.component";
-
-export interface Employee {
-  empId: number;
-  name: string;
-  city: string | null | undefined;
-  contactNo: string;
-  attendance:number;
-  joinDate: Date;
-  isActive:boolean;
-}
-
 @Component({
-  selector: 'app-ng-for',
-  imports: [CommonModule, NotavailablePipe, ProgressBarComponent],
-  templateUrl: './ng-for.component.html',
-  styleUrl: './ng-for.component.css',
+  selector: 'app-ng-temp-ng-container',
+  imports: [CommonModule,NotavailablePipe],
+  templateUrl: './ng-temp-ng-container.component.html',
+  styleUrl: './ng-temp-ng-container.component.css'
 })
-export class NgForComponent {
-  courseName: string = 'Angular';
-  currentDate: Date = new Date();
 
-  studentObj: { name:string; city: string; mobile: string } = {
-    name: 'Ivriel',
-    city: 'Malang',
-    mobile: '1234567890',
-  };
-  cityList: string[] = ['Pune', 'Nagpur', 'Jaipur', 'Mumbai', 'Thane'];
+export class NgTempNgContainerComponent {
+
+  isLoader:boolean = true
+
+  constructor(){
+    setTimeout(() => {
+      this.isLoader = false
+    }, 3000);
+  }
 
   employeeArray: Employee[] = [
     {
@@ -56,7 +45,7 @@ export class NgForComponent {
       contactNo: '895455559',
       attendance:100,
       joinDate: new Date(),
-      isActive:false
+      isActive:true
     },
     {
       empId: 124,
@@ -74,7 +63,7 @@ export class NgForComponent {
       contactNo: '82334349',
       attendance:10,
       joinDate: new Date(),
-      isActive:false
+      isActive:true
     },
     {
       empId: 126,
